@@ -172,8 +172,8 @@ export default function ContactForm() {
               <SelectValue placeholder="Select a service" />
             </SelectTrigger>
             <SelectContent>
-              <SelectItem value="itad">IT Asset Disposition</SelectItem>
-              <SelectItem value="recycling">Electronic Recycling</SelectItem>
+              <SelectItem value="it-asset-disposition">IT Asset Disposition</SelectItem>
+              <SelectItem value="electronic-recycling">Electronic Recycling</SelectItem>
               <SelectItem value="data-destruction">Data Destruction</SelectItem>
               <SelectItem value="asset-recovery">Asset Recovery</SelectItem>
               <SelectItem value="consultation">Consultation</SelectItem>

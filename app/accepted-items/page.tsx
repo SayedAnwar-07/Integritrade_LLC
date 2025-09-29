@@ -124,8 +124,7 @@ export default function AcceptedItemsPage() {
         {/* Hero */}
         <h2 className="text-center text-3xl md:text-4xl font-semibold tracking-tight">Electronics We Accept</h2>
         <p className="lead mx-auto mt-3 max-w-3xl text-center text-muted-foreground">
-          We accept most electronics for free customer drop-offs.
-          Our comprehensive recycling program ensures your electronic devices are processed responsibly and securely.
+         Most electronics can be dropped off at no cost. Prefer hassle-free service? Schedule a pick-up and let our team handle everything from start to finish. Pricing is based on job size and scope.
         </p>
 
         <div className="mt-8 flex items-center justify-center gap-4">

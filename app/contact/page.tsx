@@ -46,7 +46,7 @@ export default function ContactPage(){
                 </div>
                 <div className="ml-3">
                   <p className="text-sm font-medium text-gray-900">Phone:</p>
-                  <a href="tel:5593254813" className="text-sm text-gray-600 hover:underline">(559) 325-4813</a>
+                  <a href="tel:5593254813" className="text-sm text-gray-600 hover:underline hover:text-blue-500">(559) 325-4813</a>
                 </div>
               </div>
 
@@ -59,7 +59,7 @@ export default function ContactPage(){
                 </div>
                 <div className="ml-3">
                   <p className="text-sm font-medium text-gray-900">Email:</p>
-                  <a href="mailto:info@integritrade.com" className="text-sm text-gray-600 hover:underline">info@integritrade.com</a>
+                  <a href="mailto:info@integritrade.com" className="text-sm text-gray-600 hover:underline hover:text-blue-500">info@integritrade.com</a>
                 </div>
               </div>
               
