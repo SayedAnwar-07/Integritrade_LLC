@@ -64,19 +64,20 @@ export default function ContactForm() {
     try {
       // Send Email using EmailJS
      const result = await emailjs.send(
-        process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID!,
-        process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID!,
-        {
-          full_name: `${form.firstName} ${form.lastName}`,
-          email: form.email,
-          company: form.company,
-          phone: form.phone,
-          service: form.service,
-          message: form.message,
-          time: new Date().toLocaleString(),
-        },
-        process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY!
-      )
+      process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID!,
+      process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID!,
+      {
+        full_name: `${form.firstName} ${form.lastName}`, 
+        email: form.email,
+        company: form.company,
+        phone: form.phone,
+        service: form.service,
+        message: form.message,
+        time: new Date().toLocaleString(),
+      },
+      process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY!
+    )
+
 
 
       if (result.status === 200) {
