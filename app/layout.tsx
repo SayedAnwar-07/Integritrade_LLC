@@ -8,6 +8,9 @@ import { Toaster } from "react-hot-toast"
 export const metadata: Metadata = {
   title: "Integritrade LLC",
   description: "Professional ITAD & Electronic Recycling Services",
+  icons: {
+    icon: "/logo.png"
+  },
 }
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
@@ -18,16 +21,16 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           <Navbar />
           <main>{children}</main>
           <Footer />
-            <Toaster
-              position="top-center"
-              toastOptions={{
-                duration: 4000,
-                style: {
-                  background: "#000",
-                  color: "#fff",       
-                },
-              }}
-            />
+          <Toaster
+            position="top-center"
+            toastOptions={{
+              duration: 4000,
+              style: {
+                background: "#000",
+                color: "#fff",       
+              },
+            }}
+          />
         </Providers>
       </body>
     </html>

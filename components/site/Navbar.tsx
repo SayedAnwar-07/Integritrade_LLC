@@ -4,6 +4,8 @@ import { useState, useEffect, useCallback, useMemo } from 'react'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 import { Menu, X } from 'lucide-react'
+import Image from "next/image";
+import logo from '@/public/main-logo.png'
 
 const nav = [
   { href: '/', label: 'Home' },
@@ -80,13 +82,17 @@ export default function Navbar() {
           : 'bg-white/70 backdrop-blur border-b-transparent'
       }`}
     >
-      <div className="mx-auto flex h-16 max-w-7xl items-center justify-between px-4 sm:px-6 lg:px-8">
+      <div className="mx-auto flex h-24 max-w-7xl items-center justify-between px-4 sm:px-6 lg:px-8">
         {/* Brand */}
         <Link
           href="/"
           className="text-lg font-semibold tracking-tight text-blue-700 hover:text-blue-800 transition-colors"
         >
-          Integritrade LLC
+          <Image
+                    src={logo}
+                    alt="llc"
+                    className="h-40 w-40"
+                  />
         </Link>
 
         {/* Desktop nav */}

@@ -13,7 +13,10 @@ export default function Footer() {
               href="/"
               className="font-semibold text-blue-600 hover:underline"
             >
-              <span className="text-lg md:text-2xl">Integritrade LLC</span>
+              <span className="text-lg font-bold md:text-4xl bg-gradient-to-r from-[#173857] to-[#2cb563] text-transparent bg-clip-text">
+                Integritrade LLC
+              </span>
+
             </Link>
             <p className="mt-2 max-w-xl text-gray-50 md:text-lg text-3m">
               Professional ITAD and electronic recycling services with a
