@@ -1,12 +1,79 @@
 import ContactForm from '@/components/site/ContactForm'
-export const metadata = { title: 'Contact • Integritrade LLC' }
+import { Metadata } from 'next'
+import Script from 'next/script'
 
-export default function ContactPage(){
+
+export const metadata: Metadata = {
+  title: 'Contact • Integritrade LLC',
+  description:
+    'Get in touch with Integritrade LLC for secure IT asset disposition (ITAD) and electronic recycling services. R2 and ISO-certified solutions for businesses of all sizes.',
+  keywords: [
+    'Contact Integritrade LLC',
+    'ITAD services contact',
+    'electronic recycling contact',
+    'R2 certified ITAD',
+    'ISO certified electronics recycling',
+    'secure IT asset disposition',
+    'corporate electronics recycling',
+    'data destruction services',
+    'ITAD company contact',
+    'IT asset management contact',
+  ],
+  openGraph: {
+    title: 'Contact Integritrade LLC | ITAD & Electronics Recycling',
+    description:
+      'Reach out to Integritrade LLC for certified IT asset disposition, electronic recycling, and secure data destruction services.',
+    url: 'https://integritradellc.com/contact',
+    siteName: 'Integritrade LLC',
+    locale: 'en_US',
+    type: 'website',
+  },
+  alternates: {
+    canonical: 'https://integritradellc.com/contact',
+  },
+}
+
+export default function ContactPage() {
+  const schemaData = {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "Integritrade LLC",
+    "url": "https://integritradellc.com",
+    "logo": "https://integritradellc.com/logo.png",
+    "contactPoint": [
+      {
+        "@type": "ContactPoint",
+        "telephone": "(559) 325-4813",
+        "contactType": "Customer Service",
+        "areaServed": "US",
+        "availableLanguage": "English"
+      },
+      {
+        "@type": "ContactPoint",
+        "email": "info@integritrade.com",
+        "contactType": "Customer Service",
+        "areaServed": "US",
+        "availableLanguage": "English"
+      }
+    ],
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "1945 N Fine Ave, STE 111",
+      "addressLocality": "Fresno",
+      "addressRegion": "CA",
+      "postalCode": "93727",
+      "addressCountry": "US"
+    },
+    "sameAs": [
+      // add social media links if available
+    ],
+    "description": "Integritrade LLC provides secure, R2 and ISO-certified IT asset disposition (ITAD), electronic recycling, and data destruction services for businesses nationwide."
+  }
   return (
     <section className="section bg-gray-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className='max-w-3xl mx-auto text-center mb-16'>
-          <h2 className="text-center text-3xl md:text-4xl font-semibold tracking-tight">Contact Us</h2>
+          <h1 className="text-center text-3xl md:text-4xl font-semibold tracking-tight">Contact Us</h1>
           <p className="lead mx-auto mt-3 max-w-3xl text-center text-muted-foreground">Ready to get started? Reach out for a consultation and quote for your ITAD and electronic recycling needs.</p>
         </div>
 
@@ -17,7 +84,7 @@ export default function ContactPage(){
           {/* Contact Info Card */}
           <div className=" p-6 md:p-8">
            <h3 className="text-xl font-semibold  mb-6 flex items-center">
-              <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 mr-2 text-blue-500" viewBox="0 0 20 20" fill="currentColor">
+              <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 mr-2 text-clr" viewBox="0 0 20 20" fill="currentColor">
                 <path fillRule="evenodd" d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z" clipRule="evenodd" />
               </svg>
               Get in Touch
@@ -103,6 +170,11 @@ export default function ContactPage(){
           </div>
         </div>
       </div>
+
+      {/* JSON-LD Structured Data */}
+      <Script type="application/ld+json" id="contact-jsonld" strategy="afterInteractive">
+        {JSON.stringify(schemaData)}
+      </Script>
     </section>
   )
 }

@@ -22,7 +22,7 @@ const services: Service[] = [
     title: 'IT Asset Disposition',
     desc:
       'Complete lifecycle management for your IT equipment, from decommissioning to final disposition.',
-    color: 'text-primary', 
+    color: 'text-clr', 
     points: [
       'Secure data wiping and destruction',
       'Equipment pickup and logistics',
@@ -36,7 +36,7 @@ const services: Service[] = [
     title: 'Compliance & Reporting',
     desc:
       'Comprehensive documentation and reporting to meet regulatory requirements.',
-    color: 'text-foreground', 
+    color: 'text-clr', 
     points: [
       'HIPAA and SOX compliance',
       'Chain of custody tracking',
@@ -50,7 +50,7 @@ const services: Service[] = [
     title: 'Electronic Recycling',
     desc:
       'Responsible recycling of all types of electronic equipment with environmental compliance.',
-    color: 'text-emerald-500', 
+    color: 'text-clr', 
     points: [
       'R2 certified recycling processes',
       'Zero landfill guarantee',
@@ -64,7 +64,7 @@ const services: Service[] = [
     title: 'Asset Recovery',
     desc:
       'Maximize return on investment through equipment refurbishment and remarketing.',
-    color: 'text-primary', 
+    color: 'text-clr', 
     points: [
       'Equipment evaluation and testing',
       'Refurbishment services',

@@ -20,7 +20,7 @@ export default function Hero() {
             <div className="flex flex-col sm:flex-row gap-4">
               <Button
                 asChild
-                className="bg-blue-600 hover:bg-blue-700 text-white px-8 py-3"
+                className="btn-bg btn-hover-bg text-white px-8 py-3"
                 data-testid="button-get-quote"
               >
                 <Link href="/contact">Get Quote</Link>
@@ -28,7 +28,7 @@ export default function Hero() {
               <Button
                 asChild
                 variant="outline"
-                className="px-8 py-3 border-blue-600 text-blue-600 hover:bg-blue-50"
+                className="px-8 py-3 rounded-md border border-gray-300 font-semibold hover:bg-muted/60"
                 data-testid="button-learn-more"
               >
                 <Link href="/services">Learn More</Link>

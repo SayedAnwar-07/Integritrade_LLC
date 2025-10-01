@@ -17,17 +17,17 @@ export default function About() {
 
         <div className="mt-8 flex flex-col items-center justify-center gap-6 md:flex-row md:gap-12">
           <div className="flex items-center gap-2 text-sm font-medium">
-            <Award className="h-5 w-5 text-primary" />
+            <Award className="h-5 w-5 text-[#2aac61]" />
             <span>R2 Certified Recycling Facility</span>
           </div>
           <div className="flex items-center gap-2 text-sm font-medium">
-            <Users className="h-5 w-5 text-primary" />
+            <Users className="h-5 w-5 text-[#2aac61]" />
             <span>Experienced Professional Team</span>
           </div>
         </div>
 
         <div className="mt-10">
-          <Button asChild size="lg">
+          <Button asChild size="lg" className="btn-bg btn-hover-bg">
             <Link href="/about">Learn More About Us</Link>
           </Button>
         </div>

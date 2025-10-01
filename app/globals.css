@@ -126,7 +126,7 @@
 }
 
 .nav-link:hover {
-  color: #1d4ed8; 
+  color: #2cb563; 
 }
 
 .nav-link::after {
@@ -136,7 +136,7 @@
   bottom: 0;
   height: 2px;
   width: 0;
-  background-color: #1d4ed8; 
+  background-color: #2cb563; 
   transition: width 0.3s ease;
 }
 
@@ -146,7 +146,7 @@
 
 .nav-link.active {
   font-weight: 500;
-  color: #1d4ed8;
+  color: #2cb563;
 }
 
 .nav-link.active::after {
@@ -170,7 +170,7 @@
 }
 
 .timeline-line {
-  background: linear-gradient(to bottom, #3b82f6, #60a5fa);
+  background: linear-gradient(to bottom, #2aac61, #268d51);
   transition: height 0.3s ease-out;
 }
 
@@ -199,4 +199,18 @@ html {
 
 ::-webkit-scrollbar-thumb:hover {
   background: #94a3b8;
+}
+
+.btn-bg{
+  background-color: #2aac61;
+}
+.text-clr{
+  color: #2aac61;
+}
+.btn-hover-bg:hover{
+  background-color: #299e58;
+}
+
+.border-clr{
+  border-color: #2cb563;
 }

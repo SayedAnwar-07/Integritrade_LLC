@@ -197,7 +197,7 @@ export default function ContactForm() {
         {/* Submit button */}
         <Button
           type="submit"
-          className="w-full rounded-sm bg-blue-600 hover:bg-blue-700 text-white font-semibold py-2 transition-colors flex items-center justify-center gap-2"
+          className="w-full rounded-sm btn-bg btn-hover-bg text-white font-semibold py-2 transition-colors flex items-center justify-center gap-2"
           disabled={loading}
         >
           {loading && <Loader2 className="animate-spin h-5 w-5" />}

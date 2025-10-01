@@ -7,13 +7,13 @@ const items = [
       icon: Recycle,
       title: "R2 Certified",
       desc: "Responsible Recycling (R2) certification ensures environmentally sound management of electronics.",
-      color: "text-emerald-500",
+      color: "text-clr",
     },
     {
       icon: FileText,
       title: "ISO Certified",
       desc: "Certified in ISO 9001 (Quality), ISO 14001 (Environmental), ISO 45001 (Health & Safety), and ISO 27001 (Information Security) standards.",
-      color: "text-foreground",
+      color: "text-clr",
     },
 
 ]
@@ -52,7 +52,7 @@ export default function Certs() {
         <div className="mt-10 text-center">
           <Button
             asChild
-            className="bg-blue-600 hover:bg-blue-700 text-white px-8 py-3"
+            className="btn-bg btn-hover-bg text-white px-8 py-3"
             data-testid="button-get-quote"
             >
             <Link href="/certifications">Certifications</Link>

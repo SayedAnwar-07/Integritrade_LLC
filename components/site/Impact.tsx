@@ -6,19 +6,19 @@ export default function Impact() {
       icon: ShieldCheck,
       title: "Certified & Secure",
       desc: "R2v3 + ISO 9001, 14001, 45001 & 27001 certified for quality, safety, and security",
-      color: "text-primary",
+      color: "text-clr",
     },
     {
       icon: FileText,
       title: "100% Data Destruction Rate",
       desc: "Guaranteed secure data erasure and destruction with industry-leading standards.",
-      color: "text-black",
+      color: "text-clr",
     },
     {
       icon: Recycle,
       title: "Zero Landfill Waste",
       desc: "Committed to sustainable practices through responsible electronics recycling.",
-      color: "text-emerald-500",
+      color: "text-clr",
     },
   ]
 

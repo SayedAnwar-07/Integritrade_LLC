@@ -4,7 +4,7 @@ export default function Process() {
       n: 1,
       t: 'Assessment',
       d: 'Initial evaluation and planning of your ITAD requirements',
-      color: 'bg-blue-500',
+      color: 'bg-[#173857]',
     },
     {
       n: 2,
@@ -16,7 +16,7 @@ export default function Process() {
       n: 3,
       t: 'Processing',
       d: 'Data destruction, refurbishment, or recycling as appropriate',
-      color: 'bg-blue-500',
+      color: 'bg-[#173857]',
     },
     {
       n: 4,

@@ -13,21 +13,21 @@ const items: Item[] = [
     title: 'Secure Data Destruction',
     desc:
       'DOD and NIST compliant data wiping and physical destruction with certificates of destruction.',
-    color: 'text-primary', 
+    color: 'text-clr', 
   },
   {
     icon: Recycle,
     title: 'Environmental Compliance',
     desc:
       'R2 certified processes ensuring responsible recycling and minimal environmental impact.',
-    color: 'text-emerald-500', 
+    color: 'text-clr', 
   },
   {
     icon: DollarSign, 
     title: 'Asset Recovery',
     desc:
       'Maximize value recovery from decommissioned equipment through refurbishment and resale.',
-    color: 'text-foreground', 
+    color: 'text-clr', 
   },
 ]
 

@@ -70,9 +70,9 @@ const TimeLine: React.FC = () => {
   return (
     <div ref={containerRef} className="relative flex flex-col items-center container mx-auto py-12">
       {/* Animated Timeline Line */}
-      <div className="absolute hidden md:block left-[20%] lg:left-1/4 top-0 bottom-0 w-0.5 bg-gray-200 rounded-full overflow-hidden">
+      <div className="absolute hidden md:block left-[18%] lg:left-1/4 top-0 bottom-0 w-0.5 bg-gray-200 rounded-full overflow-hidden">
         <div
-          className="w-0.5 bg-gradient-to-b from-blue-500 to-blue-600 rounded-full transition-all duration-300 ease-out"
+          className="w-0.5 bg-gradient-to-b from-[#2aac61] to-[#28aa5e] rounded-full transition-all duration-300 ease-out"
           style={{ height: `${lineHeight}px` }}
         />
       </div>
@@ -88,10 +88,10 @@ const TimeLine: React.FC = () => {
             }}
           >
             <div
-              className={`w-4 h-4 rounded-full border-2 transition-all duration-300 ${
+              className={`w-4 h-4 rounded-full border-2 transition-all duration-300 border-gray-300 ${
                 index <= activeIndex
-                  ? "bg-blue-500 border-blue-500 scale-125 shadow-lg"
-                  : "bg-white border-gray-300"
+                  ? "bg-[#175055] scale-125 shadow-lg"
+                  : "bg-white"
               }`}
             />
           </div>
@@ -119,7 +119,7 @@ const TimeLine: React.FC = () => {
               <div
                 className={`bg-white text-black border text-sm font-semibold px-4 py-3 rounded-lg shadow-lg w-24 text-center transition-all duration-300 ${
                   index === activeIndex
-                    ? "border-blue-500 shadow-blue-200 scale-105"
+                    ? "border-clr shadow-blue-200 scale-105"
                     : "border-gray-200"
                 }`}
               >
@@ -131,16 +131,31 @@ const TimeLine: React.FC = () => {
               </div>
             </div>
           </div>
+
           {/* Center - Content */}
           <div
             className={`bg-white px-6 py-4 rounded-lg md:p-6 w-full md:w-3/4 lg:w-2/4 md:pl-8 flex items-center border shadow-sm transition-all duration-300 ${
               index === activeIndex
-                ? "border-blue-200 shadow-lg shadow-blue-100"
+                ? "border-clr shadow-lg shadow-blue-100"
                 : "border-gray-100"
             }`}
           >
             <div className="grid grid-cols-1 gap-3">
-              <p className="text-lg md:text-xl font-bold text-gray-800">{cert.title}</p>
+               {/* <div>
+                  <p className="text-lg md:text-xl font-bold text-gray-800 mb-4">{cert.company}</p>
+                  <p className="flex items-center gap-2 text-sm font-semibold text-blue-700 mb-2">
+                    <ShieldCheck className="h-4 w-4" />
+                    Valid From: {cert.validFrom}
+                  </p>
+                  <p className="flex items-center gap-2 text-sm font-semibold text-emerald-600">
+                    <ShieldCheck className="h-4 w-4" />
+                    Valid Until: {cert.validUntil}
+                  </p>
+
+                  <p className="text-gray-700 text-base leading-relaxed mt-4">{cert.company_description}</p>
+               </div> */}
+              
+              <p className="text-base font-bold text-gray-800 mt-4">{cert.title}</p>
               <p className="text-gray-700 text-base leading-relaxed">{cert.description}</p>
               
               {/* Display Key Points */}
@@ -150,21 +165,7 @@ const TimeLine: React.FC = () => {
                     <strong>{point.short_header}:</strong> {point.short_info}
                   </li>
                 ))}
-              </ul>
-
-              <div>
-                <p className="text-base font-bold text-gray-800 mb-4">{cert.company}</p>
-                <p className="flex items-center gap-2 text-sm font-semibold text-blue-700 mb-2">
-                  <ShieldCheck className="h-4 w-4" />
-                  Valid From: {cert.validFrom}
-                </p>
-                <p className="flex items-center gap-2 text-sm font-semibold text-emerald-600">
-                  <ShieldCheck className="h-4 w-4" />
-                  Valid Until: {cert.validUntil}
-                </p>
-
-                <p className="text-gray-600 text-sm leading-relaxed mt-4">{cert.company_description}</p>
-              </div>
+              </ul>       
             </div>
           </div>
 

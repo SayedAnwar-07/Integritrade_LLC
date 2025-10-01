@@ -61,10 +61,10 @@ export default function Navbar() {
             key={item.href}
             href={item.href}
             onClick={() => setIsOpen(false)}
-            className={`rounded-md px-3 py-3 text-base transition-colors ${
+            className={`px-3 py-3 text-base transition-colors border-b ${
               active
-                ? 'font-medium text-blue-700 bg-blue-50'
-                : 'text-gray-600 hover:text-blue-700'
+                ? 'font-medium text-[#2cb563] border-b-[#2cb563]'
+                : 'text-gray-600 hover:text-[#2cb563]'
             }`}
           >
             {item.label}
@@ -89,10 +89,10 @@ export default function Navbar() {
           className="text-lg font-semibold tracking-tight text-blue-700 hover:text-blue-800 transition-colors"
         >
           <Image
-                    src={logo}
-                    alt="llc"
-                    className="h-40 w-40"
-                  />
+            src={logo}
+            alt="llc"
+            className="h-40 w-40"
+          />
         </Link>
 
         {/* Desktop nav */}
@@ -131,7 +131,9 @@ export default function Navbar() {
                   className="text-lg font-semibold tracking-tight text-blue-700"
                   onClick={() => setIsOpen(false)}
                 >
-                  Integritrade LLC
+                  <span className="text-lg font-bold bg-gradient-to-r from-[#173857] to-[#2cb563] text-transparent bg-clip-text">
+                    Integritrade LLC
+                  </span>
                 </Link>
                 <button
                   aria-label="Close"
