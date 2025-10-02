@@ -11,6 +11,7 @@ import {
   Mail,
   Zap,
 } from 'lucide-react'
+import Link from 'next/link'
 import Script from 'next/script'
 export const metadata = {
   title: "Accepted Items • Integritrade LLC",
@@ -191,18 +192,8 @@ export default function AcceptedItemsPage() {
         </p>
 
         <div className="mt-8 flex items-center justify-center gap-4">
-          <a
-            href="#schedule"
-            className="rounded-md btn-bg btn-hover-bg px-5 py-2.5 text-sm font-semibold text-white shadow-sm hover:opacity-95"
-          >
-            Schedule Drop-off
-          </a>
-          <a
-            href="#forms"
-            className="rounded-md border px-5 py-2.5 text-sm font-semibold hover:bg-muted/60"
-          >
-            Download Forms
-          </a>
+          <Link href="/forms"  className="rounded-md btn-bg btn-hover-bg px-5 py-2.5 text-sm font-semibold text-white shadow-sm hover:opacity-95">Schedule Drop-off</Link>
+          <Link href="/services" className="rounded-md border px-5 py-2.5 text-sm font-semibold hover:bg-muted/60">Explore Our Services</Link>
         </div>
 
         {/* Free electronics grid */}
@@ -278,16 +269,18 @@ export default function AcceptedItemsPage() {
             <div className="mt-5 flex items-center justify-center gap-3">
               <a
                 href="#contact"
-                className="rounded-md btn-bg btn-hover-bg px-4 py-2 text-sm font-semibold text-white hover:opacity-95"
+                
               >
-                Ask About Your Device
+                
               </a>
+              <Link href='/about' className="rounded-md btn-bg btn-hover-bg px-4 py-2 text-sm font-semibold text-white hover:opacity-95">Ask About Your Device</Link>
               <a
-                href="tel:+1-000-000-0000"
+                href="tel:+15593254813"
                 className="rounded-md border px-4 py-2 text-sm font-semibold hover:bg-muted/60"
               >
                 Call Us Directly
               </a>
+
             </div>
           </div>
         </div>

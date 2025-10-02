@@ -4,7 +4,7 @@ import { useState, useEffect, useCallback, useMemo } from 'react'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 import { Menu, X } from 'lucide-react'
-import Image from "next/image";
+import Image from 'next/image'
 import logo from '@/public/main-logo.png'
 
 const nav = [
@@ -13,7 +13,7 @@ const nav = [
   { href: '/about', label: 'About' },
   { href: '/certifications', label: 'Certifications' },
   { href: '/accepted-items', label: 'Accepted Items' },
-  { href: '/contact', label: 'Contact' }, 
+  { href: '/contact', label: 'Contact' },
 ]
 
 export default function Navbar() {
@@ -86,31 +86,36 @@ export default function Navbar() {
         {/* Brand */}
         <Link
           href="/"
-          className="text-lg font-semibold tracking-tight text-blue-700 hover:text-blue-800 transition-colors"
+          className="flex items-center text-lg font-semibold tracking-tight text-blue-700 hover:text-blue-800 transition-colors"
         >
-          <Image
-            src={logo}
-            alt="llc"
-            className="h-40 w-40"
-          />
+          <Image src={logo} alt="Integritrade LLC" className="h-32 w-auto" />
         </Link>
 
         {/* Desktop nav */}
-        <nav className="hidden md:flex items-center gap-6 lg:gap-8">
+        <nav className="hidden md:flex items-center gap-6 lg:gap-3">
           {navLinks}
         </nav>
+
+        {/* Clickable Phone Number */}
+        <div className="hidden md:flex justify-center items-center ml-4 gap-2">
+          <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 text-emerald-500 mt-0.5" viewBox="0 0 20 20" fill="currentColor">
+              <path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z" />
+          </svg>
+          <a
+            href="tel:+15593254813"
+            className='hover:underline'
+          >
+            (559) 325-4813
+          </a>
+        </div>
 
         {/* Mobile nav button */}
         <button
           aria-label="Toggle menu"
           onClick={toggleMenu}
-          className="md:hidden rounded-md p-2 hover:bg-gray-100 transition-colors"
+          className="md:hidden rounded-md p-2 hover:bg-gray-100 transition-colors ml-2"
         >
-          {isOpen ? (
-            <X className="h-6 w-6" />
-          ) : (
-            <Menu className="h-6 w-6" />
-          )}
+          {isOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
         </button>
 
         {/* Mobile navigation overlay */}
@@ -146,6 +151,19 @@ export default function Navbar() {
 
               {/* Nav list */}
               <div className="flex flex-col bg-white p-4">{mobileLinks}</div>
+
+              {/* Mobile Clickable Phone */}
+              <div className="p-4 border-t">
+               <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 text-emerald-500 mt-0.5" viewBox="0 0 20 20" fill="currentColor">
+                    <path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z" />
+                </svg>
+                <a
+                  href="tel:+15593254813"
+                  className="block w-full text-center px-4 py-3 bg-green-600 text-white font-semibold rounded-md hover:bg-green-700 transition-colors"
+                >
+                  Call Now: (559) 325-4813
+                </a>
+              </div>
             </div>
           </div>
         )}
