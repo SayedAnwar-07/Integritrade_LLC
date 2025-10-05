@@ -45,7 +45,7 @@ export default function Footer() {
                   </a>
                 </div>
               </div>
-              <p className="text-xs text-gray-400 mt-2 pl-8">(Call or text is welcome)</p>
+              <p className="text-xs text-gray-400 mt-2 pl-8">(Available by Phone or Text)</p>
               
               <div className="flex items-center gap-3">
                 <div className="w-5 h-5 text-emerald-500 flex-shrink-0">

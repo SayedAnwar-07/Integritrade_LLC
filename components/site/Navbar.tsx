@@ -40,7 +40,7 @@ export default function Navbar() {
           : 'bg-white/70 backdrop-blur border-b border-transparent'
       }`}
     >
-      <div className="mx-auto flex max-w-7xl items-center justify-between px-4 sm:px-6 lg:px-8 py-3 md:py-4">
+      <div className="mx-auto flex max-w-7xl items-center justify-between px-4 sm:px-6 lg:px-8">
         {/* Logo (Visible on mobile and tablet) */}
         <div className="flex-shrink-0 lg:hidden">
           <Link href="/" className="flex items-center">
