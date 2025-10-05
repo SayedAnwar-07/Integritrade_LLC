@@ -81,6 +81,8 @@ export default function BookingForm() {
     emailjs.init(process.env.NEXT_PUBLIC_BOOKING_EMAILJS_PUBLIC_KEY!)
 
     const templateParams = {
+      from_name: "Integritrade LLC (Service Book)", 
+      reply_to: form.email,
       name: form.name,
       email: form.email,
       phone: form.phone,

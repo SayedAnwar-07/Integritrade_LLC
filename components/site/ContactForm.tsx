@@ -67,7 +67,9 @@ export default function ContactForm() {
       process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID!,
       process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID!,
       {
-        full_name: `${form.firstName} ${form.lastName}`, 
+        from_name: "Integritrade LLC (Contact)", 
+        reply_to: form.email,
+        full_name: `${form.firstName} ${form.lastName}`,
         email: form.email,
         company: form.company,
         phone: form.phone,

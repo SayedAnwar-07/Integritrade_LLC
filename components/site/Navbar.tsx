@@ -1,20 +1,12 @@
 'use client'
 
-import { useState, useEffect, useCallback, useMemo } from 'react'
+import { useState, useEffect } from 'react'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
-import { Menu, X } from 'lucide-react'
 import Image from 'next/image'
-import logo from '@/public/main-logo.png'
-
-const nav = [
-  { href: '/', label: 'Home' },
-  { href: '/services', label: 'Services' },
-  { href: '/about', label: 'About' },
-  { href: '/certifications', label: 'Certifications' },
-  { href: '/accepted-items', label: 'Accepted Items' },
-  { href: '/contact', label: 'Contact' },
-]
+import logo from '../../public/main-logo.png'
+import { Button } from '../ui/button'
+import { Phone } from 'lucide-react'
 
 export default function Navbar() {
   const pathname = usePathname()
@@ -26,145 +18,207 @@ export default function Navbar() {
   }, [pathname])
 
   useEffect(() => {
-    const handleScroll = () => {
-      setIsScrolled(window.scrollY > 10)
-    }
+    const handleScroll = () => setIsScrolled(window.scrollY > 10)
     window.addEventListener('scroll', handleScroll, { passive: true })
     return () => window.removeEventListener('scroll', handleScroll)
   }, [])
 
-  const toggleMenu = useCallback(() => setIsOpen((prev) => !prev), [])
-
-  const navLinks = useMemo(
-    () =>
-      nav.map((item) => {
-        const active = pathname === item.href
-        return (
-          <Link
-            key={item.href}
-            href={item.href}
-            className={`nav-link ${active ? 'active' : ''}`}
-          >
-            {item.label}
-          </Link>
-        )
-      }),
-    [pathname]
-  )
-
-  const mobileLinks = useMemo(
-    () =>
-      nav.map((item) => {
-        const active = pathname === item.href
-        return (
-          <Link
-            key={item.href}
-            href={item.href}
-            onClick={() => setIsOpen(false)}
-            className={`px-3 py-3 text-base transition-colors border-b ${
-              active
-                ? 'font-medium text-[#2cb563] border-b-[#2cb563]'
-                : 'text-gray-600 hover:text-[#2cb563]'
-            }`}
-          >
-            {item.label}
-          </Link>
-        )
-      }),
-    [pathname]
-  )
+  const navItems = [
+    { href: '/', label: 'Home' },
+    { href: '/services', label: 'Services' },
+    { href: '/about', label: 'About' },
+    { href: '/certifications', label: 'Certifications' },
+    { href: '/accepted-items', label: 'Accepted Items' },
+    { href: '/contact', label: 'Contact' },
+  ]
 
   return (
     <header
       className={`sticky top-0 z-50 w-full transition-all duration-300 ${
         isScrolled
-          ? 'bg-white/90 backdrop-blur-md border-b'
-          : 'bg-white/70 backdrop-blur border-b-transparent'
+          ? 'bg-white/90 backdrop-blur-md border-b border-gray-200'
+          : 'bg-white/70 backdrop-blur border-b border-transparent'
       }`}
     >
-      <div className="mx-auto flex h-24 max-w-7xl items-center justify-between px-4 sm:px-6 lg:px-8">
-        {/* Brand */}
-        <Link
-          href="/"
-          className="flex items-center text-lg font-semibold tracking-tight text-blue-700 hover:text-blue-800 transition-colors"
-        >
-          <Image src={logo} alt="Integritrade LLC" className="h-32 w-auto" />
-        </Link>
-
-        {/* Desktop nav */}
-        <nav className="hidden md:flex items-center gap-6 lg:gap-3">
-          {navLinks}
-        </nav>
-
-        {/* Clickable Phone Number */}
-        <div className="hidden md:flex justify-center items-center ml-4 gap-2">
-          <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 text-emerald-500 mt-0.5" viewBox="0 0 20 20" fill="currentColor">
-              <path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z" />
-          </svg>
-          <a
-            href="tel:+15593254813"
-            className='hover:underline'
-          >
-            (559) 325-4813
-          </a>
+      <div className="mx-auto flex max-w-7xl items-center justify-between px-4 sm:px-6 lg:px-8 py-3 md:py-4">
+        {/* Logo (Visible on mobile and tablet) */}
+        <div className="flex-shrink-0 lg:hidden">
+          <Link href="/" className="flex items-center">
+            <Image
+              src={logo}
+              alt="Integritrade LLC"
+              className="h-14 w-auto sm:h-16"
+              priority
+            />
+          </Link>
         </div>
 
-        {/* Mobile nav button */}
-        <button
-          aria-label="Toggle menu"
-          onClick={toggleMenu}
-          className="md:hidden rounded-md p-2 hover:bg-gray-100 transition-colors ml-2"
-        >
-          {isOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
-        </button>
-
-        {/* Mobile navigation overlay */}
-        {isOpen && (
-          <div className="fixed inset-0 z-50 md:hidden">
-            {/* Backdrop */}
-            <div
-              className="absolute inset-0 bg-black/20"
-              onClick={() => setIsOpen(false)}
+        {/* Desktop Navigation (Visible only on large screens) */}
+        <nav className="hidden lg:flex items-center gap-6">
+          <Link
+            href="/"
+            className="flex items-center text-lg font-semibold text-blue-700 hover:text-blue-800 transition-colors"
+          >
+            <Image
+              src={logo}
+              alt="Integritrade LLC"
+              className="h-28 w-auto"
+              priority
             />
+          </Link>
 
-            {/* Sidebar */}
-            <div className="absolute inset-y-0 left-0 w-full bg-white shadow-lg">
-              {/* Header */}
-              <div className="flex items-center justify-between border-b px-4 py-3">
-                <Link
-                  href="/"
-                  className="text-lg font-semibold tracking-tight text-blue-700"
-                  onClick={() => setIsOpen(false)}
-                >
-                  <span className="text-lg font-bold bg-gradient-to-r from-[#173857] to-[#2cb563] text-transparent bg-clip-text">
-                    Integritrade LLC
-                  </span>
-                </Link>
-                <button
-                  aria-label="Close"
-                  className="rounded-md p-2 hover:bg-gray-100 transition-colors"
-                  onClick={() => setIsOpen(false)}
-                >
-                  <X className="h-5 w-5" />
-                </button>
-              </div>
+          {navItems.map((item) => {
+            const isActive = pathname === item.href
+            return (
+              <Link
+                key={item.href}
+                href={item.href}
+                className={`group relative inline-block pb-2 no-underline transition-colors duration-300 font-medium text-sm uppercase tracking-wide ${
+                  isActive ? 'text-black font-semibold' : 'text-gray-600'
+                }`}
+              >
+                {item.label}
+                <span
+                  className={`absolute left-0 bottom-0 h-0.5 transition-all duration-300 ${
+                    isActive
+                      ? 'bg-[#2cb563] w-full'
+                      : 'bg-gray-300 w-0 group-hover:w-full'
+                  }`}
+                />
+              </Link>
+            )
+          })}
+        </nav>
 
-              {/* Nav list */}
-              <div className="flex flex-col bg-white p-4">{mobileLinks}</div>
+        {/* Desktop Contact + CTA (lg only) */}
+        <div className="hidden lg:flex items-center gap-6">
+          <div className="flex items-center gap-4 text-sm">
+            <div className="w-px h-4 bg-gray-300" />
+            <a
+              href="tel:+15593254813"
+              className="flex items-center gap-2 text-gray-900 font-medium"
+            >
+              <Phone className="w-4 h-4" />
+              <span className="hover:text-[#2cb563] transition-colors hover:underline">
+                (559) 325-4813
+              </span>
+            </a>
+          </div>
+          <div className="w-px h-6 bg-gray-300" />
+          <Button
+            asChild
+            className="btn-bg btn-hover-bg text-white px-8 py-3"
+          >
+            <Link href="/service-book">Schedule Drop-off</Link>
+          </Button>
+        </div>
 
-              {/* Mobile Clickable Phone */}
-              <div className="p-4 bg-white">              
-                <a
-                  href="tel:+15593254813"
-                  className="block w-full text-center px-4 py-3 bg-green-600 text-white rounded-sm hover:bg-green-700 transition-colors"
+        {/* Mobile & Tablet Menu Button */}
+        <button
+          onClick={() => setIsOpen(!isOpen)}
+          className="lg:hidden p-2 rounded-md text-gray-600 hover:text-[#2cb563] hover:bg-gray-100 transition-colors"
+          aria-label="Toggle menu"
+        >
+          <svg
+            className="w-6 h-6 sm:w-7 sm:h-7"
+            fill="none"
+            stroke="currentColor"
+            viewBox="0 0 24 24"
+          >
+            {isOpen ? (
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth={2}
+                d="M6 18L18 6M6 6l12 12"
+              />
+            ) : (
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth={2}
+                d="M4 6h16M4 12h16M4 18h16"
+              />
+            )}
+          </svg>
+        </button>
+      </div>
+
+      {/* Mobile & Tablet Menu */}
+      {isOpen && (
+        <div className="lg:hidden">
+          <div
+            className="fixed inset-0 bg-black/20 z-40"
+            onClick={() => setIsOpen(false)}
+          />
+          <div className="fixed top-0 left-0 right-0 bg-white shadow-lg z-50 animate-in slide-in-from-top duration-300">
+            <div className="flex items-center justify-between p-4 border-b">
+              <Link
+                href="/"
+                className="text-xl font-bold bg-gradient-to-r from-[#173857] to-[#2cb563] text-transparent bg-clip-text"
+                onClick={() => setIsOpen(false)}
+              >
+                INTEGRITRADE
+              </Link>
+              <button
+                onClick={() => setIsOpen(false)}
+                className="p-2 text-gray-600 hover:text-[#2cb563]"
+                aria-label="Close menu"
+              >
+                <svg
+                  className="w-6 h-6"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
                 >
-                  Call Now: (559) 325-4813
-                </a>
-              </div>
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M6 18L18 6M6 6l12 12"
+                  />
+                </svg>
+              </button>
+            </div>
+
+            <nav className="flex flex-col p-4">
+              {navItems.map((item) => {
+                const isActive = pathname === item.href
+                return (
+                  <Link
+                    key={item.href}
+                    href={item.href}
+                    onClick={() => setIsOpen(false)}
+                    className={`px-4 py-3 text-lg font-medium border-b border-gray-100 transition-colors ${
+                      isActive
+                        ? 'text-[#2cb563] border-l-4 border-[#2cb563] bg-green-50'
+                        : 'text-gray-700 hover:text-[#2cb563] hover:bg-gray-50'
+                    }`}
+                  >
+                    {item.label}
+                  </Link>
+                )
+              })}
+            </nav>
+
+            <div className="px-4 space-y-4 mb-4">
+              <Button className="w-full bg-[#2cb563] text-white py-3 px-4 rounded-sm text-sm hover:bg-[#25a055] transition-colors font-medium">
+                <Link href="/service-book">Schedule Drop-off</Link>
+              </Button>
+
+              <a
+                href="tel:+15593254813"
+                className="flex items-center justify-center gap-2 w-full bg-[#2cb563] text-white py-3 px-4 rounded-sm text-sm hover:bg-[#25a055] transition-colors font-medium"
+              >
+                Call Now : (559) 325-4813
+              </a>
+              <p className="text-center text-xs text-gray-600">
+                Calling or texting
+              </p>
             </div>
           </div>
-        )}
-      </div>
+        </div>
+      )}
     </header>
   )
 }

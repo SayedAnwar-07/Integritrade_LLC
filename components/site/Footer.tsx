@@ -36,13 +36,16 @@ export default function Footer() {
                 <div className="w-5 h-5 text-emerald-500 flex-shrink-0">
                   <PhoneIcon />
                 </div>
-                <a 
-                  href="tel:+15593254813"
-                  className="text-gray-300 hover:text-white transition-colors duration-200"
-                >
-                  (559) 325-4813
-                </a>
+                <div>
+                  <a 
+                    href="tel:+15593254813"
+                    className="text-gray-300 hover:text-white transition-colors duration-200"
+                  >
+                    (559) 325-4813
+                  </a>
+                </div>
               </div>
+              <p className="text-xs text-gray-400 mt-2 pl-8">(Call or text is welcome)</p>
               
               <div className="flex items-center gap-3">
                 <div className="w-5 h-5 text-emerald-500 flex-shrink-0">
@@ -64,7 +67,6 @@ export default function Footer() {
                   <p className="text-gray-300 text-sm">
                     Mon–Fri 9:00 AM–3:00 PM
                   </p>
-                  
                 </div>
               </div>
             </div>
@@ -114,7 +116,14 @@ export default function Footer() {
             </ul>
           </div>
         </div>
-        
+
+        {/* Service Area */}
+        <div className="text-center border-t border-gray-700 pt-6 pb-4">
+          <p className="text-gray-400 text-sm">
+            <span className="font-semibold text-white">Service Area :</span> Fresno, Clovis, Madera, Reedley, San Francisco, Sacramento
+          </p>
+        </div>
+
         {/* Bottom Bar */}
         <div className="border-t border-gray-700 pt-6 pb-4">
           <div className="flex flex-col md:flex-row justify-between items-center gap-4">

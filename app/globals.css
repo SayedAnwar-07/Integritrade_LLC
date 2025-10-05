@@ -115,46 +115,6 @@
 .card { @apply rounded-lg border bg-white shadow-sm; }
 
 
-
-.nav-link {
-  position: relative;
-  display: inline-block;
-  padding: 0.25rem 0.5rem;
-  color: #4b5563;
-  text-decoration: none;
-  transition: color 0.3s ease;
-}
-
-.nav-link:hover {
-  color: #2cb563; 
-}
-
-.nav-link::after {
-  content: "";
-  position: absolute;
-  left: 0;
-  bottom: 0;
-  height: 2px;
-  width: 0;
-  background-color: #2cb563; 
-  transition: width 0.3s ease;
-}
-
-.nav-link:hover::after {
-  width: 100%;
-}
-
-.nav-link.active {
-  font-weight: 500;
-  color: #2cb563;
-}
-
-.nav-link.active::after {
-  width: 100%;
-}
-
-
-
 @layer base {
   * {
     @apply border-border;
