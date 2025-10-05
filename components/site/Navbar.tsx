@@ -99,7 +99,7 @@ export default function Navbar() {
               className="flex items-center gap-2 text-gray-900 font-medium"
             >
               <Phone className="w-4 h-4" />
-              <span className="hover:text-[#2cb563] transition-colors hover:underline">
+              <span className="hover:text-[#218a4b] transition-colors hover:underline">
                 (559) 325-4813
               </span>
             </a>
