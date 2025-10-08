@@ -73,8 +73,12 @@ export default function ContactPage() {
     <section className="section bg-gray-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className='max-w-3xl mx-auto text-center mb-16'>
-          <h1 className="text-center text-3xl md:text-4xl font-semibold tracking-tight">Contact Us</h1>
-          <p className="lead mx-auto mt-3 max-w-3xl text-center text-muted-foreground">Ready to get started? Reach out for a consultation and quote for your ITAD and electronic recycling needs.</p>
+          <h1 className="text-center text-3xl md:text-4xl font-semibold tracking-tight">Ready to get started?</h1>
+          <p className="lead mx-auto mt-3 max-w-3xl text-center text-muted-foreground">Reach out today for a consultation or quote for your electronic recycling or IT asset management needs.
+Thank you for recycling responsibly. Every device you divert from the landfill contributes to a cleaner, more sustainable future.
+In many cases, our recycling or ITAD programs are completely free, and depending on the age and quantity of your devices, your organization may even earn revenue back through our remarketing and reuse channels.</p>
+          <p className="lead mx-auto mt-3 max-w-3xl text-center text-muted-foreground">Our team will review your equipment list, discuss the most cost-effective and compliant options, and provide a detailed proposal that aligns with your sustainability goals.
+Start your secure, responsible recycling program today.</p>
         </div>
 
         <div className="mt-8 grid gap-8 md:grid-cols-2">

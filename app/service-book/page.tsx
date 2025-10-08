@@ -251,48 +251,7 @@ export default function FormsPage() {
                   </div>
                 </div>            
           </div>
-        </div>
-
-
-
-        {/* Professional Services Section */}
-        <div className="mt-20">
-                <div className="">              
-                  <h2 className="text-center text-lg md:text-2xl font-semibold tracking-tight">ITAD Service Agreements & Compliance Documentation</h2>
-                </div>
-                <p className="mt-4 text-center text-muted-foreground max-w-3xl mx-auto mb-10">
-                Complete ITAD documentation covering asset pickup, data destruction, chain of custody, and compliance checklists for secure and transparent service.
-              </p>
-         </div>
-        <div className="mt-10 grid gap-6 md:grid-cols-2">
-          {forms.map((f) => (
-            <div key={f.title} className="rounded-md border bg-white p-6 shadow-sm hover:shadow-md">
-              <div className="flex items-start gap-3">
-                {f.icon ? <f.icon className="mt-1 h-5 w-5 text-clr" /> : null}
-                <div className="w-full">
-                  <div className="flex items-center justify-between">
-                    <div className="font-semibold">{f.title}</div>
-                  </div>               
-
-                  <p className="mt-3 text-sm text-muted-foreground">
-                    {/* small descriptive line optional; keep layout aligned with screenshots */}
-                  </p>
-
-                  <div className="mt-2 text-sm">
-                    <ul className="space-y-2 text-muted-foreground">
-                      {f.items.map((i) => (
-                        <li key={i} className="flex items-start gap-2">
-                          <CheckCircle2 className="mt-0.5 h-4 w-4 shrink-0 text-emerald-500" />
-                          <span>{i}</span>
-                        </li>
-                      ))}
-                    </ul>
-                  </div>                
-                </div>
-              </div>
-            </div>
-          ))}
-        </div>
+        </div>       
       </div>
 
       <Script type="application/ld+json" id="services-jsonld" strategy="afterInteractive">

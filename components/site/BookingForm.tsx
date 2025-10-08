@@ -20,8 +20,6 @@ interface FormData {
   phone: string
   company: string
   service: string
-  equipmentType: string
-  quantity: string
   address: string
   city: string
   preferredDate: string
@@ -36,8 +34,6 @@ export default function BookingForm() {
     phone: '',
     company: '',
     service: '',
-    equipmentType: '',
-    quantity: '',
     address: '',
     city: '',
     preferredDate: '',
@@ -81,15 +77,12 @@ export default function BookingForm() {
     emailjs.init(process.env.NEXT_PUBLIC_BOOKING_EMAILJS_PUBLIC_KEY!)
 
     const templateParams = {
-      from_name: "Integritrade LLC (Service Book)", 
       reply_to: form.email,
       name: form.name,
       email: form.email,
       phone: form.phone,
       company: form.company,
       service: form.service,
-      equipment_type: form.equipmentType,
-      quantity: form.quantity,
       address: form.address,
       city: form.city,
       message: form.message,
@@ -118,8 +111,6 @@ export default function BookingForm() {
         phone: '',
         company: '',
         service: '',
-        equipmentType: '',
-        quantity: '',
         address: '',
         city: '',
         preferredDate: '',
@@ -281,59 +272,14 @@ export default function BookingForm() {
             <SelectValue placeholder="Select a service" />
           </SelectTrigger>
           <SelectContent>
-            <SelectItem value="it-asset-disposition">IT Asset Disposition</SelectItem>
-            <SelectItem value="electronic-recycling">Electronic Recycling</SelectItem>
+            <SelectItem value="basic-electronic-recycling">Basic Electronic Recycling</SelectItem>
+            <SelectItem value="serialized-itad-data-destruction-services">Serialized ITAD / Data Destruction Services (Includes Basic Electronic Recycling)</SelectItem>
             <SelectItem value="data-destruction">Data Destruction</SelectItem>
-            <SelectItem value="asset-recovery">Asset Recovery</SelectItem>
-            <SelectItem value="data-center-decommissioning">Data Center Decommissioning</SelectItem>
-            <SelectItem value="on-site-service">On-Site Service</SelectItem>
-            <SelectItem value="consultation">Consultation</SelectItem>
+            <SelectItem value="other">Others</SelectItem>
           </SelectContent>
         </Select>
         {errors.service && <p className="text-red-500 text-sm mt-1">{errors.service}</p>}
       </div>
-
-      {/* Equipment Details */}
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-        <div>
-          <Label className="text-black">Equipment Type</Label>
-          <Select
-            value={form.equipmentType}
-            onValueChange={(value) => setForm((prev) => ({ ...prev, equipmentType: value }))}
-          >
-            <SelectTrigger className="mt-1 w-full rounded-sm bg-white border border-gray-300 focus:ring-blue-200 outline-none focus:ring-1">
-              <SelectValue placeholder="Select equipment type" />
-            </SelectTrigger>
-            <SelectContent>
-              <SelectItem value="laptops">Laptops</SelectItem>
-              <SelectItem value="desktops">Desktops</SelectItem>
-              <SelectItem value="servers">Servers</SelectItem>
-              <SelectItem value="networking-quipment">Networking Equipment</SelectItem>
-              <SelectItem value="storage-devices">Storage Devices</SelectItem>
-              <SelectItem value="phones-or-tablets">Mobile Phones/Tablets</SelectItem>
-              <SelectItem value="monitors-displays">Monitors & Displays</SelectItem>
-              <SelectItem value="printers-scanners">Printers & Scanners</SelectItem>
-              <SelectItem value="mixed-equipment">Mixed Equipment</SelectItem>
-              <SelectItem value="others">Others</SelectItem>
-            </SelectContent>
-          </Select>
-        </div>
-        <div>
-          <label htmlFor="quantity" className="block text-sm font-medium text-gray-700 mb-1">
-            Estimated Quantity
-          </label>
-          <input
-            type="text"
-            id="quantity"
-            name="quantity"
-            value={form.quantity}
-            onChange={handleChange}
-            className="mt-1 w-full rounded-sm bg-white border focus:ring-blue-200 outline-none focus:ring-1 p-2 border-gray-300"
-            placeholder="e.g., 50 laptops, 10 servers"
-          />
-        </div>
-      </div>
-
       {/* Additional Information */}
       <div>
         <label htmlFor="message" className="block text-sm font-medium text-gray-700 mb-1">
@@ -360,22 +306,7 @@ export default function BookingForm() {
         {loading ? "Sending..." : "Get Free Quote"}
       </Button>
 
-      {/* Status Messages */}
-      {submitStatus === 'success' && (
-        <div className="p-4 bg-green-50 border border-green-200 rounded-sm">
-          <p className="text-green-800 font-medium">
-            Thank you! Your service request has been submitted. We will contact you within 24 hours.
-          </p>
-        </div>
-      )}
-
-      {submitStatus === 'error' && (
-        <div className="p-4 bg-red-50 border border-red-200 rounded-sm">
-          <p className="text-red-800 font-medium">
-            Sorry, there was an error submitting your request. Please try again or call us directly at (559) 325-4813.
-          </p>
-        </div>
-      )}     
+      
     </form>
   )
 }
