@@ -221,72 +221,8 @@ export default function OurPartnersPage() {
           </div>
         </div>
 
-        {/* Impact Metrics */}
-        <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 md:gap-8 mb-16 md:mb-20 lg:mb-24">
-          {[
-            { number: "500+", label: "Devices Refurbished", icon: Laptop },
-            { number: "1.2T", label: "E-Waste Prevented", icon: Leaf },
-            { number: "15+", label: "Communities Served", icon: Building },
-            { number: "100%", label: "Data Security", icon: Lock },
-          ].map((stat, index) => {
-            const Icon = stat.icon;
-            return (
-              <div key={index} className="text-center group">
-                <div className="bg-white rounded-md p-4 sm:p-6 md:p-8 shadow-sm border border-gray-100 hover:shadow-md transition-all duration-300 hover:border-[#2aac61]/20 mb-3 sm:mb-4">
-                  <div className="flex justify-center mb-2 sm:mb-3 opacity-80 group-hover:scale-110 transition-transform duration-300">
-                    <Icon size={24} strokeWidth={1.5} />
-                  </div>
-                  <div className="text-xl sm:text-2xl md:text-3xl font-semibold text-gray-900 mb-1 sm:mb-2 group-hover:text-[#2aac61] transition-colors duration-300">
-                    {stat.number}
-                  </div>
-                  <div className="text-gray-600 text-xs sm:text-sm font-medium">
-                    {stat.label}
-                  </div>
-                </div>
-              </div>
-            );
-          })}
-        </div>
 
-        {/* Partner Network */}
-        <div className="mb-16 md:mb-20 lg:mb-24">
-          <div className="text-center mb-12 md:mb-16">
-            <h2 className="text-2xl sm:text-3xl font-semibold text-gray-900 mb-3 md:mb-4">
-              Our Trusted Network
-            </h2>
-            <p className="text-gray-600 text-base sm:text-lg max-w-2xl mx-auto font-light px-4 sm:px-0">
-              Collaborating with industry leaders who share our commitment to sustainability and digital inclusion
-            </p>
-          </div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
-            {[
-              { src: EcoTech, alt: "EcoTech", name: "EcoTech Solutions", description: "Sustainable tech innovation" },
-              { src: GreenTech, alt: "GreenTech", name: "GreenTech Innovations", description: "Environmental technology" },
-              { src: TechCycle, alt: "TechCycle", name: "TechCycle", description: "Circular economy specialists" },
-              { src: DigitalBridge, alt: "DigitalBridge", name: "Digital Bridge", description: "Digital inclusion advocates" },
-            ].map((partner, index) => (
-              <div key={partner.alt} className="group text-center">
-                <div className="bg-white rounded-md p-4 sm:p-6 md:p-8 shadow-sm border border-gray-100 hover:shadow-lg transition-all duration-500 hover:border-[#2aac61]/30 mb-3 sm:mb-4 relative overflow-hidden">
-                  <div className="absolute inset-0 bg-gradient-to-br from-white to-gray-50 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-                  <Image 
-                    className="w-72 h-72 sm:w-20 sm:h-20 md:w-24 md:h-24 lg:w-28 lg:h-28 object-contain mx-auto grayscale group-hover:grayscale-0 transition-all duration-500 group-hover:scale-110 relative z-10"
-                    src={partner.src}
-                    alt={partner.alt}
-                  />
-                </div>
-                <div className="space-y-1 sm:space-y-2">
-                  <div className="font-semibold text-gray-900 group-hover:text-[#2aac61] transition-colors duration-300 text-sm sm:text-base">
-                    {partner.name}
-                  </div>
-                  <div className="text-xs sm:text-sm text-gray-500">
-                    {partner.description}
-                  </div>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
 
         {/* CTA Section */}
         <div className="bg-white rounded-md p-6 sm:p-8 md:p-10 lg:p-12 text-center shadow-sm border border-gray-100 relative overflow-hidden">
