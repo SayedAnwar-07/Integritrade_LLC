@@ -1,10 +1,5 @@
 import Image from "next/image";
 import ELFUS from "@/assets/ELFUS.jpg";
-import EcoTech from "@/assets/EcoTech.png";
-import GreenTech from "@/assets/GreenTech.png";
-import TechCycle from "@/assets/TechCycle.jpg";
-import DigitalBridge from "@/assets/DigitalBridge.jpg";
-import { Laptop, Leaf, Building, Lock } from "lucide-react";
 import Link from "next/link";
 import Script from 'next/script'
 
