@@ -2,6 +2,8 @@ import React from "react";
 import TimeLine from "@/components/site/TimeLine";
 import type { Metadata } from "next";
 import Script from "next/script";
+import { Button } from "@/components/ui/button";
+import Link from "next/link";
 
 export const metadata: Metadata = {
   title: "Certifications & Compliance • Integritrade LLC",
@@ -84,6 +86,21 @@ export default function CertificationsPage() {
 
         {/* Timeline */}
         <TimeLine />
+
+        <div className="mt-24">
+           <h2 className="text-2xl md:text-3xl font-semibold text-gray-900 mb-4 text-center">
+                Ready to Work with Certified Experts?
+              </h2>
+              <p className="text-lg text-gray-600 max-w-2xl mx-auto text-center">
+                Our certified team ensures your IT assets are handled with the highest standards 
+                of security, compliance, and environmental responsibility.
+              </p>
+
+              <div className="mt-8 flex flex-col md:flex-row items-center justify-center gap-4 px-4 max-w-md mx-auto">
+                <Link href="/service-book"  className="w-full text-center rounded-md btn-bg btn-hover-bg px-5 py-2.5 text-sm font-semibold text-white shadow-sm hover:opacity-95">Book Our Service</Link>
+                <Link href="/about" className="w-full text-center rounded-md border px-5 py-2.5 text-sm font-semibold hover:bg-muted/60">Learn More</Link>
+              </div>
+        </div>
 
         {/* JSON-LD Structured Data */}
         <Script type="application/ld+json" id="certifications-jsonld" strategy="afterInteractive">
