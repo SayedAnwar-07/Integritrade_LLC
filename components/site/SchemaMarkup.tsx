@@ -13,11 +13,6 @@ const SchemaMarkup = () => {
       "areaServed": "US",
       "availableLanguage": "English"
     },
-    // "sameAs": [
-    //   "https://www.facebook.com/integritradellc",
-    //   "https://twitter.com/integritradellc",
-    //   "https://www.linkedin.com/company/integritradellc"
-    // ],
     "address": {
         "@type": "PostalAddress",
         "streetAddress": "1945 N Fine Ave, STE 111",

@@ -28,7 +28,7 @@ export default function Navbar() {
 
   useEffect(() => {
     const checkMobile = () => {
-      setIsMobile(window.innerWidth < 1024) // lg breakpoint
+      setIsMobile(window.innerWidth < 1024) 
     }
     
     checkMobile()
@@ -43,7 +43,8 @@ export default function Navbar() {
       href: '/about', 
       label: 'About',
       dropdown: [
-        { href: '/our-team', label: 'Our Team' }
+        { href: '/about/our-team', label: 'Our Team' },
+        { href: '/about/our-partners', label: 'Our Partners' }
       ]
     },
     { href: '/certifications', label: 'Certifications' },
@@ -86,9 +87,8 @@ export default function Navbar() {
               priority
             />
           </Link>
-
           {navItems.map((item) => {
-            const isActive = pathname === item.href
+            const isActive = pathname === item.href || pathname.startsWith(`${item.href}/`)
             const hasDropdown = item.dropdown && item.dropdown.length > 0
 
             if (hasDropdown) {
@@ -97,11 +97,15 @@ export default function Navbar() {
                   <div className="flex items-center gap-1">
                     <Link
                       href={item.href}
-                      className={`group relative inline-block pb-2 no-underline transition-colors duration-300 font-medium text-sm uppercase tracking-wide ${isActive ? 'text-black font-semibold' : 'text-gray-600'}`}
+                      className={`group relative inline-block pb-2 no-underline transition-colors duration-300 font-medium text-sm uppercase tracking-wide ${
+                        isActive ? 'text-black font-semibold' : 'text-gray-600'
+                      }`}
                     >
                       {item.label}
                       <span
-                        className={`absolute left-0 bottom-0 h-0.5 transition-all duration-300 ${isActive ? 'bg-[#2cb563] w-full' : 'bg-gray-300 w-0 group-hover:w-full'}`}
+                        className={`absolute left-0 bottom-0 h-0.5 transition-all duration-300 ${
+                          isActive ? 'bg-[#2cb563] w-full' : 'bg-gray-300 w-0 group-hover:w-full'
+                        }`}
                       />
                     </Link>
                     <button
@@ -117,17 +121,22 @@ export default function Navbar() {
 
                   {/* Dropdown Menu */}
                   {isAboutOpen && (
-                    <div className="absolute top-full left-0 mt-2 w-48 bg-white rounded-md shadow-lg border border-gray-200 py-2 z-50">
-                      {item.dropdown?.map((dropdownItem) => (
-                        <Link
-                          key={dropdownItem.href}
-                          href={dropdownItem.href}
-                          className="block px-4 py-2 text-sm text-gray-700 hover:text-[#2cb563] transition-colors duration-200"
-                          onClick={() => setIsAboutOpen(false)}
-                        >
-                          {dropdownItem.label}
-                        </Link>
-                      ))}
+                    <div className="absolute top-full left-0 mt-2 w-48 bg-white rounded-md shadow-lg border border-gray-200 z-50">
+                      {item.dropdown?.map((dropdownItem) => {
+                        const isSubActive = pathname === dropdownItem.href
+                        return (
+                          <Link
+                            key={dropdownItem.href}
+                            href={dropdownItem.href}
+                            className={`block px-4 py-4 text-sm hover:bg-gray-50 transition-colors duration-200 border-b ${
+                              isSubActive ? 'text-[#269c55] font-semibold' : 'text-gray-600 hover:text-[#2cb563]'
+                            }`}
+                            onClick={() => setIsAboutOpen(false)}
+                          >
+                            {dropdownItem.label}
+                          </Link>
+                        )
+                      })}
                     </div>
                   )}
                 </div>
@@ -138,15 +147,20 @@ export default function Navbar() {
               <Link
                 key={item.href}
                 href={item.href}
-                className={`group relative inline-block pb-2 no-underline transition-colors duration-300 font-medium text-sm uppercase tracking-wide ${isActive ? 'text-black font-semibold' : 'text-gray-600'}`}
+                className={`group relative inline-block pb-2 no-underline transition-colors duration-300 font-medium text-sm uppercase tracking-wide ${
+                  isActive ? 'text-black font-semibold' : 'text-gray-600'
+                }`}
               >
                 {item.label}
                 <span
-                  className={`absolute left-0 bottom-0 h-0.5 transition-all duration-300 ${isActive ? 'bg-[#2cb563] w-full' : 'bg-gray-300 w-0 group-hover:w-full'}`}
+                  className={`absolute left-0 bottom-0 h-0.5 transition-all duration-300 ${
+                    isActive ? 'bg-[#2cb563] w-full' : 'bg-gray-300 w-0 group-hover:w-full'
+                  }`}
                 />
               </Link>
             )
           })}
+
         </nav>
 
         {/* Desktop Contact + CTA (lg only) */}
@@ -202,9 +216,9 @@ export default function Navbar() {
               </button>
             </div>
 
-            <nav className="flex flex-col p-4">
+           <nav className="flex flex-col p-4">
               {navItems.map((item) => {
-                const isActive = pathname === item.href
+                const isActive = pathname === item.href || pathname.startsWith(`${item.href}/`)
                 const hasDropdown = item.dropdown && item.dropdown.length > 0
 
                 if (hasDropdown) {
@@ -214,7 +228,11 @@ export default function Navbar() {
                         <Link
                           href={item.href}
                           onClick={() => setIsOpen(false)}
-                          className={`flex-1 px-4 py-3 text-lg font-medium transition-colors ${isActive ? 'text-[#2cb563] border-l-4 border-[#2cb563] bg-green-50' : 'text-gray-700 hover:text-[#2cb563] hover:bg-gray-50'}`}
+                          className={`flex-1 px-4 py-3 text-lg font-medium transition-colors ${
+                            isActive
+                              ? 'text-[#2cb563] border-l-4 border-[#2cb563] bg-green-50'
+                              : 'text-gray-700 hover:text-[#2cb563] hover:bg-gray-50'
+                          }`}
                         >
                           {item.label}
                         </Link>
@@ -223,8 +241,10 @@ export default function Navbar() {
                           className="p-2 mr-2 hover:bg-gray-100 rounded transition-colors"
                           aria-label="Toggle team dropdown"
                         >
-                          <ChevronDown 
-                            className={`w-4 h-4 transition-transform duration-200 ${isAboutOpen ? 'rotate-180' : ''}`} 
+                          <ChevronDown
+                            className={`w-4 h-4 transition-transform duration-200 ${
+                              isAboutOpen ? 'rotate-180' : ''
+                            }`}
                           />
                         </button>
                       </div>
@@ -232,16 +252,26 @@ export default function Navbar() {
                       {/* Mobile Dropdown Menu */}
                       {isAboutOpen && (
                         <div className="pl-6 bg-gray-50 border-l-2 border-gray-200">
-                          {item.dropdown?.map((dropdownItem) => (
-                            <Link
-                              key={dropdownItem.href}
-                              href={dropdownItem.href}
-                              onClick={() => { setIsAboutOpen(false); setIsOpen(false); }}
-                              className="block px-4 py-3 text-base text-gray-700 hover:text-[#2cb563] hover:bg-gray-100 border-b border-gray-100 last:border-b-0 transition-colors duration-200"
-                            >
-                              {dropdownItem.label}
-                            </Link>
-                          ))}
+                          {item.dropdown?.map((dropdownItem) => {
+                            const isSubActive = pathname === dropdownItem.href
+                            return (
+                              <Link
+                                key={dropdownItem.href}
+                                href={dropdownItem.href}
+                                onClick={() => {
+                                  setIsAboutOpen(false)
+                                  setIsOpen(false)
+                                }}
+                                className={`block px-4 py-3 text-base border-b border-gray-100 last:border-b-0 transition-colors duration-200 ${
+                                  isSubActive
+                                    ? 'text-[#2cb563] font-medium bg-green-50 border-l-4 border-[#2cb563]'
+                                    : 'text-gray-700 hover:text-[#2cb563] hover:bg-gray-100'
+                                }`}
+                              >
+                                {dropdownItem.label}
+                              </Link>
+                            )
+                          })}
                         </div>
                       )}
                     </div>
@@ -253,13 +283,18 @@ export default function Navbar() {
                     key={item.href}
                     href={item.href}
                     onClick={() => setIsOpen(false)}
-                    className={`px-4 py-3 text-lg font-medium border-b border-gray-100 transition-colors ${isActive ? 'text-[#2cb563] border-l-4 border-[#2cb563] bg-green-50' : 'text-gray-700 hover:text-[#2cb563] hover:bg-gray-50'}`}
+                    className={`px-4 py-3 text-lg font-medium border-b border-gray-100 transition-colors ${
+                      isActive
+                        ? 'text-[#2cb563] border-l-4 border-[#2cb563] bg-green-50'
+                        : 'text-gray-700 hover:text-[#2cb563] hover:bg-gray-50'
+                    }`}
                   >
                     {item.label}
                   </Link>
                 )
               })}
             </nav>
+
 
             <div className="px-4 space-y-4 mb-4">
               <Button className="w-full bg-[#2cb563] text-white py-3 px-4 rounded-sm text-sm hover:bg-[#25a055] transition-colors font-medium">

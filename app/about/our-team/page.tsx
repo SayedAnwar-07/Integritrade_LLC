@@ -24,7 +24,7 @@ export const metadata = {
   openGraph: {
     title: "Our Leadership | Ian Ziyar - Founder & CEO | Integritrade LLC",
     description: "Meet Ian Ziyar, scientist and entrepreneur driving innovation in secure IT asset disposition with R2v3, ISO 9001, ISO 14001, ISO 45001, and ISO 27001 certifications.",
-    url: "https://integritradellc.com/our-team",
+    url: "https://integritradellc.com/about/our-team",
     siteName: "Integritrade LLC",
     images: [
       {
@@ -38,7 +38,7 @@ export const metadata = {
     type: "profile",
   },
   alternates: {
-    canonical: "https://integritradellc.com/our-team",
+    canonical: "https://integritradellc.com/about/our-team",
   },
   robots: {
     index: true,
@@ -52,12 +52,12 @@ export default function OurTeamPage() {
             <div className="container mx-auto px-4 md:px-6">
                 {/* Page Header */}
                 <div className="text-center mb-28">
-                <h1 className="text-3xl md:text-4xl font-semibold tracking-tight">
-                    Leadership & Industry Standards
-                </h1>
-                <p className="lead mx-auto mt-3 max-w-3xl text-center text-muted-foreground px-4">
-                     Under Ian is leadership, Integritrade achieved R2v3, ISO 9001, ISO 14001, ISO 45001, and ISO 27001 certifications—establishing new benchmarks for security and integrity in IT asset disposition. He personally oversees all ITAD and data destruction projects, ensuring every device is processed securely. Within the company is first six months, his approach earned the trust of Fortune 500 companies and federal organizations.
-                </p>
+                    <h1 className="text-3xl md:text-4xl font-semibold tracking-tight">
+                        Leadership & Industry Standards
+                    </h1>
+                    <p className="lead mx-auto mt-3 max-w-4xl text-center text-muted-foreground px-4">
+                        Under Ian’s leadership, Integritrade achieved R2v3, ISO 9001, ISO 14001, ISO 45001, and ISO 27001 certifications—establishing new benchmarks for security and integrity in IT asset disposition. He personally oversees all ITAD and data destruction projects, ensuring every device is processed securely. Within the company’s first six months, his approach earned the trust of Fortune 500 companies and federal organizations.
+                    </p>
                 </div>
 
                 {/* Main Content */}
